@@ -1,11 +1,24 @@
 import s from './SearchBox.module.css'
-// import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-const SearchBox = () => {
+
+
+const SearchBox = ({ value, setSearch }) => {
+  const onSearch = (e) => {
+    setSearch(e.target.value)
+  }
+
   return (
-    <div>
-      
-    </div>
+      <div className={s.container}>
+        <label>Find contacts by name:</label>
+        <input 
+          type='text' 
+          name='search' 
+          onChange={onSearch} 
+          value={value} 
+          placeholder="Search" 
+          className={s.input} 
+        />
+      </div>
   )
 }
 
